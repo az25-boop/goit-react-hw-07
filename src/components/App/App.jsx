@@ -5,7 +5,7 @@ import s from "./App.module.css";
 import { fetchContacts } from "../../redux/contactsOps";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { ColorRing } from "react-loader-spinner";
+import { Watch } from "react-loader-spinner";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -30,14 +30,15 @@ export default function App() {
       <SearchBox />
       {isLoading && (
         <div className={s.loaderContainer}>
-          <ColorRing
+          <Watch
             visible={true}
             height="80"
             width="80"
-            ariaLabel="color-ring-loading"
+            radius="48"
+            color="#4fa94d"
+            ariaLabel="watch-loading"
             wrapperStyle={{}}
-            wrapperClass="color-ring-wrapper"
-            colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+            wrapperClass=""
           />
         </div>
       )}

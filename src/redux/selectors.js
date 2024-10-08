@@ -10,6 +10,10 @@ export const selectContactDeleter = (state) => state.contacts.loading.deleting;
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contacts, filter) => {
+    if (!Array.isArray(contacts)) {
+      return [];
+    }
+
     return contacts.filter(
       (contact) =>
         contact.name.toLowerCase().includes(filter.toLowerCase()) ||

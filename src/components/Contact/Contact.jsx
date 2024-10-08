@@ -1,37 +1,38 @@
-import css from "./Contact.module.css";
-import { ThreeDots } from "react-loader-spinner";
+import s from "./Contact.module.css";
+import { Watch } from "react-loader-spinner";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosContact } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteContact } from "../../redux/contactsOps";
 import { selectContactDeleter } from "../../redux/selectors";
+
 export default function Contact({ data }) {
   const dispatch = useDispatch();
   const contactDeleter = useSelector(selectContactDeleter);
   return (
     <div>
       {contactDeleter === data.id ? (
-        <div className={css.deleteContainer}>
-          <ThreeDots
+        <div className={s.deleteContainer}>
+          <Watch
             visible={true}
             height="80"
             width="80"
-            color="#007bff"
-            radius="9"
-            ariaLabel="three-dots-loading"
+            radius="48"
+            color="#4fa94d"
+            ariaLabel="watch-loading"
             wrapperStyle={{}}
             wrapperClass=""
           />
         </div>
       ) : (
-        <div className={css.contact}>
+        <div className={s.contact}>
           <div>
             <p>
-              <IoIosContact className={css.icon} />
+              <IoIosContact className={s.icon} />
               {data.name}
             </p>
             <p>
-              <FaPhoneAlt className={css.icon} />
+              <FaPhoneAlt className={s.icon} />
               {data.number}
             </p>
           </div>

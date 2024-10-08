@@ -1,11 +1,11 @@
 import Contact from "../Contact/Contact";
-import s from "./ContactList.module.css";
 import { Watch } from "react-loader-spinner";
 import { useSelector } from "react-redux";
 import {
   selectContactLoader,
   selectVisibleContacts,
 } from "../../redux/selectors";
+import s from "./ContactList.module.css";
 
 export default function ContactList() {
   const isLoading = useSelector(selectContactLoader);
